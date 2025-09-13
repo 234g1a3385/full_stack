@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+Enter distance (km): <input id="dist" type="number" min="0" step="0.1"><br><br>
+<button onclick="calc()">Calculate Price</button>
+
+<p id="price"></p>
+
+<script>
+function calc() {
+  let d = parseFloat(document.getElementById('dist').value);
+  if (isNaN(d) || d < 0) {
+    document.getElementById('price').innerText = "Please enter a valid distance.";
+    return;
+  }
+
+  let price = 0;
+
+  if (d <= 5) {
+    price = 0;
+  } else if (d <= 10) {
+    // Next 5 km costs $10
+    price = 10;
+  } else if (d <= 20) {
+    // Next 5 km = $10 + next up to 10 km = $15
+    price = 10 + 15;
+  } else {
+    // Distance beyond 20 km adds $20 on top of previous charges
+    price = 10 + 15 + 20;
+  }
+
+  document.getElementById('price').innerText = "Price is $" + price;
+}
+</script>
+
+</body>
+</html>
