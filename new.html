@@ -1,0 +1,25 @@
+ <DOTYPE html>
+<html>
+    <head>
+        <title>To-Do List</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <h2>To-Do List</h2>
+        <input type="text" id="myInput" placeholder="Add new task">
+        <button id="add">Add</button>
+        <ul id="list"></ul>
+    </body>
+ 
+ <script>
+    $(document).ready(function(){
+        $("#add").click(function(){
+            let task=$("#myInput").val();
+            if(task){
+                $("#list").append("<li>"+task+ "</li>");
+                $("#myInput").val(" ");
+            }
+        });
+    });
+</script>
+</html>
